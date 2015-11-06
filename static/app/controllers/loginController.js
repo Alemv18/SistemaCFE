@@ -17,7 +17,7 @@ cfe.controller('loginCtrl', ['$http', '$scope', function($http, $scope){
 
 
   //   $scope.nuevoUsuario = function(){
-  //   	$http.post('/cerrar_sesion', $scope.formData)
+  //   	$http.post('/nuevo', $scope.formData)
 	 //    .success(function (response) {
 	 //    	console.log(response);
   // }

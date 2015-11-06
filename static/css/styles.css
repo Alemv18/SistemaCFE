@@ -8,6 +8,18 @@ body{
     height: 1100px;
 }
 
+
+#superior{
+    color:green;
+}
+
+#enmedio{
+    color:yellow;
+}
+
+#inferior{
+    color:red;
+}
 a {
 
     color: rgb(120,120,120);

@@ -17,9 +17,8 @@ class Pregunta(Model):
         return {
             "pregunta" : self.pregunta
         }
-    def get_respuestas(self):
-        respuestas = Respuesta.select().where(Respuesta.pregunta == self.id)
-        return respuestas
+    def get_pregunta(self):
+       preguntas = Pregunta.select().where(Pregunta.pregunta == self.id)
+        return preguntas
 
-    def __repr__(self):
-        return self.pregunta
+   

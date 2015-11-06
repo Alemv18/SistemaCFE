@@ -8,7 +8,7 @@ import datetime
 sesiones = Blueprint('sesiones', __name__ )
 
 
-@sesiones.route('/login', methods=['POST'])
+@sesiones.route('/iniciar_sesion', methods=['POST'])
 def sesion_entrar():
 	try:
 		email = request.form['email']
@@ -22,7 +22,7 @@ def sesion_entrar():
 			return "Error",404
 
 
-@sesiones.route('/logout')
+@sesiones.route('/cerrar_sesion')
 def sesion_salir():
 	return redirect(url_for('login'))
 		

@@ -1,17 +1,40 @@
-<div class="wrapper" ng-controller="autoevaluacion">
-      <select  id="seleccionar_competencias" ng-model="competencia" ng-options="competencia.nombre for competencia in competencias" ng-change="selectedValue(competencia)">
-      	<option value='' disabled>Seleccionar una competencia</option>
-      </select>
-	<div class="autoevaluacion">
-	<h1>Autoevaluación</h1>
-	<ul>
-		<li ng-repeat="pregunta in preguntas">{{ pregunta.pregunta }}
-		<form action="/respuestas_preguntas" method="POST">
-			<label for="True">Verdadero</label>
-			<input id="True" type="radio" name="respuesta" value="True">
-			<label for="False">Falso</label>
-			<input id="False" type="radio" name="respuesta" value="False">
-		</form></li>
-	</ul>
-	</div>
+<div class="wrapper">
+    <div>
+        <div class="row barra-menu">
+            <div id="competencia-menu" class="col-md-4">
+                <h1>Autoevaluación.</h1>
+               <!--  <button ng-click="si()">Si</button>
+                <button ng-click="no()">No</button> -->
+            </div>
+
+            <ul class="competencias_lista" id="izq-ls">
+                    <li data-ng-model="usuario" data-ng-repeat="competencia in competencias_existentes "><a href="#" ng-click="remove($index)">{{ competencia.nombre }}</a></li>
+             </ul>       
+
+
+
+            <div class="col-xs-6" id="competencia-descripcion">
+                <p>{{competencia_actual.descripcion}}</p>
+            </div>
+            
+        <div class="cuadro" id="superior"></div>
+        <h2 class="competencias_cuadro_titulo">Competencias Existentes:{{competencias_existentes.length}} </h2>
+        </div>
+
+            <div class="cuadro" id="enmedio">
+                <h2 class="competencias_cuadro_titulo">Competencias Neutras: {{ competencias.length }}</h2>
+                
+            </div>
+
+            <div class="cuadro" id="inferior">
+                <h2 class="competencias_cuadro_titulo">Competencias Inexistentes:  {{ competencias_inexistentes.length }}</h2>
+                <ul class="competencias_lista" id="der-ls">
+                    <li data-ng-model="usuario" data-ng-repeat="competencia in competencias_inexistentes "><a href="#" ng-click="remove($index)">{{ competencia.nombre }}</a></li>
+
+                </ul>
+            </div> 
+            <div id="resultados">
+                <button ng-click='reportes()'>Enviar resultados</button>
+            </div>
+        </div>
 </div>

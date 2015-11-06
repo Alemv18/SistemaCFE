@@ -28,6 +28,8 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = '/'
 
+#Esta es la prueba
+
 @login_manager.user_loader
 def cargar_usuario(usuarioid):
     try:
@@ -183,15 +185,6 @@ def evaluando_neutras():
 			)
 	return "ok"
 
-
-@app.route('/cerrar_sesion')
-@login_required
-def cerrar_sesion():
-	logout_user()
-	flash('Haz salido de la sesion exitosamente!', 'success')
-	return redirect(url_for('login'))
-
-
 @app.route('/get_competencias')
 @login_required
 def get_competencias():
@@ -302,6 +295,25 @@ def iniciar_sesion():
 	if request.form['password'] == usuario.rpe:
 		login_user(usuario)
 		return 'Login successfull'
+
+@app.route('/cerrar_sesion', methods=['POST'])
+@login_required
+def cerrar_sesion():
+	pass
+# logout_user()
+# flash('Haz salido de la sesion exitosamente!', 'success')
+# return redirect(url_for('login'))
+
+@app.route('/nuevo', methods=['POST'])
+def nuevoUsuario():
+	pass
+# models.Usuario.nuevo(
+# 	rpe=rpe,
+#     nombre=nombre,
+#     puesto=puesto,
+#     departamento=departamento,
+#     correo=correo
+# 	)	
 
 
 @app.route('/get_preguntas', methods=['POST'])

@@ -16,3 +16,13 @@ class Respuesta(Model):
             respuesta=respuesta
         )
 
+    def to_json(self):
+        return {
+            "respuesta" : self.respuesta
+        }
+    def get_respuestas(self):
+        respuestas = Respuesta.select().where(Respuesta.pregunta == self.id)
+        return respuestas
+
+    def __repr__(self):
+        return self.pregunta
